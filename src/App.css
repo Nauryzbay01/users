@@ -2,38 +2,41 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    background: rgb(40, 40, 40);
+}
 .app {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .board {
-    width: calc(64px * 8);
-    height: calc(64px * 8);
+    width: calc(80px * 8);
+    height: calc(80px * 8);
     display: flex;
     flex-wrap: wrap;
 }
 .cell {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .cell img {
-    width: 48px;
-    height: 48px;
+    width: 80px;
+    height: 80px;
     position: relative;
 }
 .black {
-    background-color: deepskyblue;
+    background-color: #b68963;
 }
 .white {
-    background-color: #eed4ac;
+    background-color: #f0dab6;
 }
 
 .selected {
@@ -47,8 +50,52 @@
 }
 
 .lost {
-    height: calc(50vh - 60px);
     padding: 30px;
     margin-left: 50px;
     background-color: lightgray;
+    display: flex;
+    width: 800px;
+    margin: 40px 0;
+    border-radius: 30px;
+}
+.lost h3{
+    color: #595653;
+}
+.lost-figure{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+.figures{
+    display: flex;
+}
+.timer-block{
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    
+    background-color: #b68963;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 20px 40px;
+}
+.timer-block h2{
+    color: white;
+}
+
+.timer-block__button{
+    background-color: #f0dab6;
+    color: white;
+    padding: 12px 40px;
+    border-radius: 30px;
+    border: none;
+    transition: .3 ease;
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+.timer-block__button:hover{
+    background-color: #aa5815;
 }

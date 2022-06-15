@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import {Cell} from "../models/Cell";
+import useSound from 'use-sound';
+// const [chess] = useSound("../assets/chess.mp3");
 
 interface CellProps {
   cell: Cell;
@@ -11,7 +13,7 @@ const CellComponent: FC<CellProps> = ({cell, selected, click}) => {
   return (
     <div
       className={['cell', cell.color, selected ? "selected" : ''].join(' ')}
-      onClick={() => click(cell)}
+      onClick={() => click(cell) }
       style={{background: cell.available && cell.figure ? 'green' : ''}}
     >
       {cell.available && !cell.figure && <div className={"available"}/>}

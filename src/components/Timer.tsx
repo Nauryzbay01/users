@@ -1,15 +1,15 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import {Player} from "../models/Player";
 import {Colors} from "../models/Colors";
-
+import mus from "../assets/clo.mp3" ;
 interface TimerProps {
   currentPlayer: Player | null;
   restart: () => void;
 }
-
+const music = new Audio(mus);
 const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
-  const [blackTime, setBlackTime] = useState(300)
-  const [whiteTime, setWhiteTime] = useState(300);
+  const [blackTime, setBlackTime] = useState(1000)
+  const [whiteTime, setWhiteTime] = useState(1000);
   const timer = useRef<null | ReturnType<typeof setInterval>>(null)
 
   useEffect(() => {
@@ -32,18 +32,23 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
   }
 
   const handleRestart = () => {
-    setWhiteTime(300)
-    setBlackTime(300)
+    setWhiteTime(1000)
+    // setBlackTime(1000)
+    // music.play();
     restart()
-  }
+    
+  } 
 
   return (
-    <div>
-      <div>
-        <button onClick={handleRestart}>Restart game</button>
+    <div className='timer-block'>
+      
+      <div className='colors'>
+        <h2>Черные - {blackTime}</h2>
+        <h2>Белые - {whiteTime}</h2>
       </div>
-      <h2>Черные - {blackTime}</h2>
-      <h2>Белые - {whiteTime}</h2>
+      <div>
+        <button className='timer-block__button' onClick={handleRestart}>Restart game</button>
+      </div>
     </div>
   );
 };
