@@ -57,6 +57,7 @@ body{
     width: 800px;
     margin: 40px 0;
     border-radius: 30px;
+    flex-wrap: wrap;
 }
 .lost h3{
     color: #595653;

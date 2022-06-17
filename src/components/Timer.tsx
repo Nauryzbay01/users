@@ -33,7 +33,7 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
 
   const handleRestart = () => {
     setWhiteTime(1000)
-    // setBlackTime(1000)
+    setBlackTime(1000)
     // music.play();
     restart()
     

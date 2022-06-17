@@ -37,5 +37,13 @@ export class Figure {
     return true;
   }
 
-  moveFigure(target: Cell) {}
+  moveFigure(target: Cell)  {
+    
+  }
+
+  // moveKing(target:Cell):boolean{
+  //   if(target.figure?.name === FigureNames.KING)
+  //     return true
+  //     return true
+  // }
 }

@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
 import {Cell} from "../models/Cell";
-import useSound from 'use-sound';
-// const [chess] = useSound("../assets/chess.mp3");
-
+import {Figure, FigureNames} from "../models/figures/Figure";
 interface CellProps {
   cell: Cell;
   selected: boolean;
