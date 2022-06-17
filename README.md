@@ -14,5 +14,5 @@ npm start
 ```
 ## cсылка на домен, где хостится проект (netlify)
 
-https://eclectic-toffee-44a22b.netlify.app/
+https://gorgeous-quokka-c8f6f3.netlify.app/
 
