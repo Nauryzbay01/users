@@ -32,13 +32,14 @@ const BoardComponent: FC<BoardProps> = ({board, setBoard, currentPlayer, swapPla
 
   useEffect(() => {
     highlightCells()
+    // eslint-disable-next-line
   }, [selectedCell])
 
   function highlightCells() {
     board.highlightCells(selectedCell)
     updateBoard()
   }
-
+  
   function updateBoard() {
     const newBoard = board.getCopyBoard()
     setBoard(newBoard)

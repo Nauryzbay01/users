@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Cell} from "../models/Cell";
-import {Figure, FigureNames} from "../models/figures/Figure";
+// import {Figure, FigureNames} from "../models/figures/Figure";
 interface CellProps {
   cell: Cell;
   selected: boolean;

@@ -9,20 +9,21 @@ import Timer from "./components/Timer";
 
 const App = () => {
   const [board, setBoard] = useState(new Board())
-  const [whitePlayer] = useState(new Player(Colors.WHITE))
-  const [blackPlayer] = useState(new Player(Colors.BLACK))
+  const [whitePlayer] = useState(new Player(Colors.WHITE));
+  const [blackPlayer] = useState(new Player(Colors.BLACK));
   const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null);
 
   useEffect(() => {
-    restart()
+    restart();
     setCurrentPlayer(whitePlayer);
+    // eslint-disable-next-line
   }, [])
 
   function restart() {
     const newBoard = new Board();
-    newBoard.initCells()
-    newBoard.addFigures()
-    setBoard(newBoard)
+    newBoard.initCells();
+    newBoard.addFigures();
+    setBoard(newBoard);
   }
 
   function swapPlayer() {

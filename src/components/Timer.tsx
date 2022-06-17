@@ -1,21 +1,23 @@
 import React, {FC, useEffect, useRef, useState} from 'react';
 import {Player} from "../models/Player";
 import {Colors} from "../models/Colors";
-import mus from "../assets/clo.mp3" ;
+// import mus from "../assets/clo.mp3" ;
 interface TimerProps {
   currentPlayer: Player | null;
   restart: () => void;
 }
-const music = new Audio(mus);
+// const music = new Audio(mus);
 const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
   const [blackTime, setBlackTime] = useState(1000)
   const [whiteTime, setWhiteTime] = useState(1000);
   const timer = useRef<null | ReturnType<typeof setInterval>>(null)
 
   useEffect(() => {
-    startTimer()
+    startTimer();
+    // eslint-disable-next-line
   }, [currentPlayer])
-
+  
+  
   function startTimer() {
     if (timer.current) {
       clearInterval(timer.current)
@@ -32,9 +34,8 @@ const Timer: FC<TimerProps> = ({currentPlayer, restart}) => {
   }
 
   const handleRestart = () => {
-    setWhiteTime(1000)
-    setBlackTime(1000)
-    // music.play();
+    setWhiteTime(1000);
+    setBlackTime(1000);
     restart()
     
   } 
