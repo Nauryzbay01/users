@@ -56,10 +56,10 @@ const Popup: FC<IPopup> = ({ setPopup, popup }) => {
     }
   };
 
-  const renderCheckedPermissions = selectOptions.map(({ id, title }) => {
+  const renderCheckedPermissions = selectOptions.map(({ id, title }, index) => {
     if (checkedPermissions?.includes(id) && id != 1) {
       // setCheckedPermissionsList([...checkedPermissionsList, title]);
-      return <span>{title}</span>;
+      return <span key={`permission_${index}`}>{title}</span>;
     }
     return null;
   });
@@ -102,8 +102,8 @@ const Popup: FC<IPopup> = ({ setPopup, popup }) => {
             fill="none"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M8.04771 6.95779L13.2984 12.2085C13.6889 12.599 13.6889 13.2322 13.2984 13.6227C12.9079 14.0132 12.2747 14.0132 11.8842 13.6227L6.79565 8.53416L1.70711 13.6227C1.31658 14.0132 0.683418 14.0132 0.292893 13.6227C-0.097631 13.2322 -0.0976313 12.599 0.292893 12.2085L5.54358 6.95779L0.292893 1.70711C-0.0976313 1.31658 -0.097631 0.683418 0.292893 0.292893C0.683418 -0.097631 1.31658 -0.0976313 1.70711 0.292893L6.79565 5.38143L11.8842 0.292893C12.2747 -0.0976313 12.9079 -0.097631 13.2984 0.292893C13.6889 0.683418 13.6889 1.31658 13.2984 1.70711L8.04771 6.95779Z"
               fill="#C1C1CB"
             />
@@ -137,7 +137,7 @@ const Popup: FC<IPopup> = ({ setPopup, popup }) => {
                 d="M1.00006 1.86407L5.86401 6.72803L10.728 1.86407"
                 stroke="#C1C1CB"
                 strokeWidth="2"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
             </svg>
           </button>
