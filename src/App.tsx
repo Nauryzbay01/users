@@ -1,57 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import BoardComponent from "./components/BoardComponent";
-import {Board} from "./models/Board";
-import {Player} from "./models/Player";
-import {Colors} from "./models/Colors";
-import LostFigures from "./components/LostFigures";
-import Timer from "./components/Timer";
-
+import Navbar from "./components/navbar";
+import { AppProvider } from "./context/context";
+import Home from "./pages/home";
+import Users from "./pages/users";
 const App = () => {
-  const [board, setBoard] = useState(new Board())
-  const [whitePlayer] = useState(new Player(Colors.WHITE));
-  const [blackPlayer] = useState(new Player(Colors.BLACK));
-  const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null);
-
-  useEffect(() => {
-    restart();
-    setCurrentPlayer(whitePlayer);
-    // eslint-disable-next-line
-  }, [])
-
-  function restart() {
-    const newBoard = new Board();
-    newBoard.initCells();
-    newBoard.addFigures();
-    setBoard(newBoard);
-  }
-
-  function swapPlayer() {
-    setCurrentPlayer(currentPlayer?.color === Colors.WHITE ? blackPlayer : whitePlayer)
-  }
+  const [value, setValue] = useState("");
 
   return (
-    <div className="app">
-      <Timer
-        restart={restart}
-        currentPlayer={currentPlayer}
-      />
-       <LostFigures
-          title="Черные фигуры"
-          figures={board.lostBlackFigures}
-        />
-      <BoardComponent
-        board={board}
-        setBoard={setBoard}
-        currentPlayer={currentPlayer}
-        swapPlayer={swapPlayer}
-      />
-       
-        <LostFigures
-          title="Белые фигуры"
-          figures={board.lostWhiteFigures}
-        />
-    </div>
+    <AppProvider value={{ value, setValue }}>
+      <div className="app">
+        <BrowserRouter>
+          <div className="wrapper">
+            <Navbar />
+            <div className="page-container">
+              <div className="page-content">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/users" element={<Users />} />
+                </Routes>
+              </div>
+            </div>
+          </div>
+        </BrowserRouter>
+      </div>
+    </AppProvider>
   );
 };
 

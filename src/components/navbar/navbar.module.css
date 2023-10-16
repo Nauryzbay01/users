@@ -1,0 +1,23 @@
+.navbar {
+  width: 100px;
+  border-radius: 0px 15px 15px 0px;
+  background: #f9fafb;
+  min-height: 100vh;
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar_item img {
+  width: 25px;
+  height: 25px;
+}
+.navbar > * {
+  display: block;
+  margin-bottom: 26px;
+}
+.navbar_item img {
+  display: block;
+  cursor: pointer;
+  margin-bottom: 34px;
+}
