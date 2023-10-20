@@ -8,7 +8,7 @@ const Navbar = () => {
   const renderNavbar = navs.map(({ title, icon }: any) => {
     return (
       <div key={`nav_${i++}`} className={style.navbar_item}>
-        <img src={iconNav} />
+        <img alt="nav" src={iconNav} />
         {/* <h4>{title}</h4> */}
       </div>
     );
@@ -35,7 +35,7 @@ const Navbar = () => {
           fill="#32C076"
         />
       </svg>
-      <img src={people} />
+      <img alt="people" src={people} />
       <nav>{renderNavbar}</nav>
     </div>
   );

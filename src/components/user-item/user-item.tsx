@@ -26,7 +26,7 @@ const UserItem: FC<IUser> = ({
     <div className={style.user}>
       <div className={style.user_image}>
         {image ? (
-          <img src={image} />
+          <img alt="person" src={image} />
         ) : (
           <img className={style.person_image} src={person} alt="Default User" />
         )}

@@ -42,9 +42,9 @@ const Popup: FC<IPopup> = ({ setPopup, popup }) => {
   // };
 
   const handleChange = (id: number) => {
-    if (id == 1 && !checkedPermissions?.includes(1)) {
+    if (id === 1 && !checkedPermissions?.includes(1)) {
       setCheckedPermissions([1, 2, 3, 4, 5, 6, 7]);
-    } else if (id == 1 && checkedPermissions?.includes(1)) {
+    } else if (id === 1 && checkedPermissions?.includes(1)) {
       setCheckedPermissions([]);
     } else if (id !== 1 && checkedPermissions?.includes(id)) {
       const arrayWithoutElem = checkedPermissions.filter(function (item) {
@@ -57,7 +57,7 @@ const Popup: FC<IPopup> = ({ setPopup, popup }) => {
   };
 
   const renderCheckedPermissions = selectOptions.map(({ id, title }, index) => {
-    if (checkedPermissions?.includes(id) && id != 1) {
+    if (checkedPermissions?.includes(id) && id !== 1) {
       // setCheckedPermissionsList([...checkedPermissionsList, title]);
       return <span key={`permission_${index}`}>{title}</span>;
     }
@@ -69,7 +69,7 @@ const Popup: FC<IPopup> = ({ setPopup, popup }) => {
       <div className={style.select_option} key={`select_${id}`}>
         <label
           className={
-            checkedPermissions.includes(1) && id != 1 ? style.not_active : ""
+            checkedPermissions.includes(1) && id !== 1 ? style.not_active : ""
           }
           htmlFor={`option_${id}`}
         >
